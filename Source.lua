@@ -1,4 +1,4 @@
---// Oblivion-Script Loader v4 (Pro Long Animation)
+--// Oblivion-Script Loader v3
 
 local Library = {}
 
@@ -8,11 +8,11 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
 
--- ⚠️ LOGO (doit être PNG transparent)
-local LOGO = "rbxassetid://82181222725549"
+-- ⚠️ TON LOGO ICI
+local LOGO = "rbxassetid://PUT_YOUR_LOGO_ID"
 
 ------------------------------------------------
--- LOADER PRO
+-- LOADER STYLE PRO
 ------------------------------------------------
 
 function Library:Loader()
@@ -23,106 +23,72 @@ function Library:Loader()
     gui.IgnoreGuiInset = true
     gui.Parent = PlayerGui
 
+    -- container transparent
     local container = Instance.new("Frame")
     container.Size = UDim2.new(1,0,1,0)
     container.BackgroundTransparency = 1
     container.Parent = gui
 
-    ------------------------------------------------
-    -- LOGO
-    ------------------------------------------------
+    -- logo
     local logo = Instance.new("ImageLabel")
-    logo.Size = UDim2.new(0,95,0,95)
-    logo.Position = UDim2.new(0.5,80,0.5,-45)
+    logo.Size = UDim2.new(0,80,0,80)
+    logo.Position = UDim2.new(0.5,-140,0.5,-40)
     logo.BackgroundTransparency = 1
     logo.Image = LOGO
     logo.ImageTransparency = 1
-    logo.ScaleType = Enum.ScaleType.Fit
     logo.Parent = container
 
-    ------------------------------------------------
-    -- TITLE
-    ------------------------------------------------
+    -- text
     local title = Instance.new("TextLabel")
-    title.Size = UDim2.new(0,500,0,80)
-    title.Position = UDim2.new(0.5,120,0.5,-45)
+    title.Size = UDim2.new(0,400,0,80)
+    title.Position = UDim2.new(0.5,-40,0.5,-40)
     title.BackgroundTransparency = 1
     title.Text = "Oblivion-Script"
-    title.TextColor3 = Color3.fromRGB(235,235,235) -- visible (pas noir sinon invisible)
+    title.TextColor3 = Color3.fromRGB(180,120,255)
     title.Font = Enum.Font.GothamBlack
-    title.TextSize = 42
+    title.TextSize = 36
     title.TextXAlignment = Enum.TextXAlignment.Left
     title.TextTransparency = 1
     title.Parent = container
 
     ------------------------------------------------
-    -- SUB TEXT
-    ------------------------------------------------
-    local sub = Instance.new("TextLabel")
-    sub.Size = UDim2.new(0,400,0,40)
-    sub.Position = UDim2.new(0.5,120,0.5,10)
-    sub.BackgroundTransparency = 1
-    sub.Text = "Initializing system..."
-    sub.TextColor3 = Color3.fromRGB(180,180,180)
-    sub.Font = Enum.Font.Gotham
-    sub.TextSize = 20
-    sub.TextXAlignment = Enum.TextXAlignment.Left
-    sub.TextTransparency = 1
-    sub.Parent = container
-
-    ------------------------------------------------
-    -- START POSITION (RIGHT SIDE)
+    -- POSITION START (droite)
     ------------------------------------------------
 
-    logo.Position = UDim2.new(0.5,180,0.5,-45)
-    title.Position = UDim2.new(0.5,220,0.5,-45)
-    sub.Position = UDim2.new(0.5,220,0.5,10)
+    logo.Position = UDim2.new(0.5,80,0.5,-40)
+    title.Position = UDim2.new(0.5,120,0.5,-40)
 
     ------------------------------------------------
-    -- ANIMATION IN (SLOW + SMOOTH)
+    -- ANIMATION (droite -> gauche + fade)
     ------------------------------------------------
 
-    task.wait(0.15)
+    task.wait(0.1)
 
-    TweenService:Create(logo,
-        TweenInfo.new(1, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
-        {
-            Position = UDim2.new(0.5,-180,0.5,-45),
-            ImageTransparency = 0
-        }
-    ):Play()
+    TweenService:Create(logo, TweenInfo.new(0.6, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
+        Position = UDim2.new(0.5,-140,0.5,-40),
+        ImageTransparency = 0
+    }):Play()
 
-    TweenService:Create(title,
-        TweenInfo.new(1, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
-        {
-            Position = UDim2.new(0.5,-80,0.5,-45),
-            TextTransparency = 0
-        }
-    ):Play()
+    TweenService:Create(title, TweenInfo.new(0.6, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
+        Position = UDim2.new(0.5,-40,0.5,-40),
+        TextTransparency = 0
+    }):Play()
 
-    TweenService:Create(sub,
-        TweenInfo.new(1, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
-        {
-            Position = UDim2.new(0.5,-80,0.5,10),
-            TextTransparency = 0
-        }
-    ):Play()
+    task.wait(1.5)
 
     ------------------------------------------------
-    -- HOLD
+    -- FADE OUT
     ------------------------------------------------
 
-    task.wait(2)
+    TweenService:Create(logo, TweenInfo.new(0.5), {
+        ImageTransparency = 1
+    }):Play()
 
-    ------------------------------------------------
-    -- FADE OUT (CLEAN)
-    ------------------------------------------------
+    TweenService:Create(title, TweenInfo.new(0.5), {
+        TextTransparency = 1
+    }):Play()
 
-    TweenService:Create(logo, TweenInfo.new(0.8), {ImageTransparency = 1}):Play()
-    TweenService:Create(title, TweenInfo.new(0.8), {TextTransparency = 1}):Play()
-    TweenService:Create(sub, TweenInfo.new(0.8), {TextTransparency = 1}):Play()
-
-    task.wait(0.9)
+    task.wait(0.6)
 
     gui:Destroy()
 end
