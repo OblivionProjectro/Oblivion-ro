@@ -9,7 +9,7 @@ local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
 
 -- ⚠️ LOGO (doit être PNG transparent)
-local LOGO = "rbxassetid://PUT_YOUR_LOGO_ID"
+local LOGO = "rbxassetid://82181222725549"
 
 ------------------------------------------------
 -- LOADER PRO
@@ -48,7 +48,7 @@ function Library:Loader()
     title.Position = UDim2.new(0.5,120,0.5,-45)
     title.BackgroundTransparency = 1
     title.Text = "Oblivion-Script"
-    title.TextColor3 = Color3.fromRGB(235,235,235) -- visible (pas noir sinon invisible)
+    title.TextColor3 = Color3.fromRGB(0,0,0) -- visible (pas noir sinon invisible)
     title.Font = Enum.Font.GothamBlack
     title.TextSize = 42
     title.TextXAlignment = Enum.TextXAlignment.Left
