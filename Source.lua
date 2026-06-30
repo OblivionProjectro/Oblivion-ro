@@ -9,9 +9,6 @@ local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
 
 
-local LOGO = "rbxassetid://82181222725549"
-
-
 function Library:Loader()
 
     local gui = Instance.new("ScreenGui")
@@ -20,71 +17,73 @@ function Library:Loader()
     gui.IgnoreGuiInset = true
     gui.Parent = PlayerGui
 
-
-    local bg = Instance.new("Frame")
-    bg.Size = UDim2.new(1,0,1,0)
-    bg.BackgroundColor3 = Color3.fromRGB(0,0,0)
-    bg.BorderSizePixel = 0
-    bg.Parent = gui
-
-  
-    local logo = Instance.new("ImageLabel")
-    logo.Size = UDim2.new(0,90,0,90)
-    logo.Position = UDim2.new(0.5,80,0.5,-45)
-    logo.BackgroundTransparency = 1
-    logo.Image = LOGO
-    logo.ImageTransparency = 1
-    logo.ScaleType = Enum.ScaleType.Fit
-    logo.Parent = bg
+   
+    local container = Instance.new("Frame")
+    container.Size = UDim2.new(1,0,1,0)
+    container.BackgroundTransparency = 1
+    container.Parent = gui
 
  
+    local icon = Instance.new("Frame")
+    icon.Size = UDim2.new(0,45,0,45)
+    icon.Position = UDim2.new(0.5, -120, 0.5, -22)
+    icon.BackgroundColor3 = Color3.fromRGB(140,90,255)
+    icon.BorderSizePixel = 0
+    icon.BackgroundTransparency = 1
+    icon.Parent = container
+
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(1,0)
+    corner.Parent = icon
+
+  
     local title = Instance.new("TextLabel")
-    title.Size = UDim2.new(0,500,0,80)
-    title.Position = UDim2.new(0.5,140,0.5,-45)
+    title.Size = UDim2.new(0,300,0,50)
+    title.Position = UDim2.new(0.5,-70,0.5,-25)
     title.BackgroundTransparency = 1
     title.Text = "Oblivion-Script"
     title.TextColor3 = Color3.fromRGB(255,255,255)
     title.Font = Enum.Font.GothamBlack
-    title.TextSize = 42
+    title.TextSize = 30
     title.TextXAlignment = Enum.TextXAlignment.Left
     title.TextTransparency = 1
-    title.Parent = bg
-
- 
-    logo.Position = UDim2.new(0.5,200,0.5,-45)
-    title.Position = UDim2.new(0.5,260,0.5,-45)
+    title.Parent = container
 
    
+    icon.Position = UDim2.new(0.5, -60, 0.5, -22)
+    title.Position = UDim2.new(0.5, 40, 0.5, -25)
+
+    
 
     task.wait(0.1)
 
-    TweenService:Create(logo,
-        TweenInfo.new(0.9, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
+    TweenService:Create(icon,
+        TweenInfo.new(0.6, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
         {
-            Position = UDim2.new(0.5,-180,0.5,-45),
-            ImageTransparency = 0
+            BackgroundTransparency = 0,
+            Position = UDim2.new(0.5, -120, 0.5, -22)
         }
     ):Play()
 
     TweenService:Create(title,
-        TweenInfo.new(0.9, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
+        TweenInfo.new(0.6, Enum.EasingStyle.Quint, Enum.EasingDirection.Out),
         {
-            Position = UDim2.new(0.5,-80,0.5,-45),
+            Position = UDim2.new(0.5, -70, 0.5, -25),
             TextTransparency = 0
         }
     ):Play()
 
-    task.wait(2)
+    task.wait(1.5)
 
-   
-    TweenService:Create(logo, TweenInfo.new(0.7), {ImageTransparency = 1}):Play()
-    TweenService:Create(title, TweenInfo.new(0.7), {TextTransparency = 1}):Play()
-    TweenService:Create(bg, TweenInfo.new(0.7), {BackgroundTransparency = 1}):Play()
 
-    task.wait(0.8)
+    TweenService:Create(icon, TweenInfo.new(0.5), {BackgroundTransparency = 1}):Play()
+    TweenService:Create(title, TweenInfo.new(0.5), {TextTransparency = 1}):Play()
+
+    task.wait(0.6)
 
     gui:Destroy()
 end
+
 
 
 Library:Loader()
