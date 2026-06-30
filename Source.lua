@@ -9,7 +9,7 @@ local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
 
 -- ⚠️ LOGO (doit être PNG transparent)
-local LOGO = "rbxassetid://PUT_YOUR_LOGO_ID"
+local LOGO = "rbxassetid://82181222725549"
 
 ------------------------------------------------
 -- LOADER PRO
