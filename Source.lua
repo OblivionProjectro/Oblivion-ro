@@ -11,7 +11,7 @@ local LocalPlayer = Players.LocalPlayer
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
 -- ⚠️ MET TON LOGO ICI
-local LOGO = "rbxassetid://127969930988833"
+local LOGO = "https://create.roblox.com/store/asset/127969930988833/Oblivionro"
 
 ------------------------------------------------
 -- LOADER
