@@ -21,16 +21,6 @@ function Library:Loader()
     container.BackgroundTransparency = 1
     container.Parent = gui
 
-  
-    local logo = Instance.new("ImageLabel")
-    logo.Size = UDim2.new(0,95,0,95)
-    logo.Position = UDim2.new(0.5,80,0.5,-45)
-    logo.BackgroundTransparency = 1
-    logo.Image = LOGO
-    logo.ImageTransparency = 1
-    logo.ScaleType = Enum.ScaleType.Fit
-    logo.Parent = container
-
     
     local title = Instance.new("TextLabel")
     title.Size = UDim2.new(0,500,0,80)
