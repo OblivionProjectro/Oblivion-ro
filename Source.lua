@@ -8,13 +8,6 @@ local TweenService = game:GetService("TweenService")
 local Player = Players.LocalPlayer
 local PlayerGui = Player:WaitForChild("PlayerGui")
 
--- ⚠️ LOGO (doit être PNG transparent)
-local LOGO = "rbxassetid://82181222725549"
-
-------------------------------------------------
--- LOADER PRO
-------------------------------------------------
-
 function Library:Loader()
 
     local gui = Instance.new("ScreenGui")
@@ -28,9 +21,7 @@ function Library:Loader()
     container.BackgroundTransparency = 1
     container.Parent = gui
 
-    ------------------------------------------------
-    -- LOGO
-    ------------------------------------------------
+  
     local logo = Instance.new("ImageLabel")
     logo.Size = UDim2.new(0,95,0,95)
     logo.Position = UDim2.new(0.5,80,0.5,-45)
@@ -40,24 +31,19 @@ function Library:Loader()
     logo.ScaleType = Enum.ScaleType.Fit
     logo.Parent = container
 
-    ------------------------------------------------
-    -- TITLE
-    ------------------------------------------------
+    
     local title = Instance.new("TextLabel")
     title.Size = UDim2.new(0,500,0,80)
     title.Position = UDim2.new(0.5,120,0.5,-45)
     title.BackgroundTransparency = 1
     title.Text = "Oblivion-Script"
-    title.TextColor3 = Color3.fromRGB(0,0,0) -- visible (pas noir sinon invisible)
+    title.TextColor3 = Color3.fromRGB(255, 255, 255) -- visible (pas noir sinon invisible)
     title.Font = Enum.Font.GothamBlack
     title.TextSize = 42
     title.TextXAlignment = Enum.TextXAlignment.Left
     title.TextTransparency = 1
     title.Parent = container
 
-    ------------------------------------------------
-    -- SUB TEXT
-    ------------------------------------------------
     local sub = Instance.new("TextLabel")
     sub.Size = UDim2.new(0,400,0,40)
     sub.Position = UDim2.new(0.5,120,0.5,10)
@@ -70,17 +56,11 @@ function Library:Loader()
     sub.TextTransparency = 1
     sub.Parent = container
 
-    ------------------------------------------------
-    -- START POSITION (RIGHT SIDE)
-    ------------------------------------------------
 
     logo.Position = UDim2.new(0.5,180,0.5,-45)
     title.Position = UDim2.new(0.5,220,0.5,-45)
     sub.Position = UDim2.new(0.5,220,0.5,10)
 
-    ------------------------------------------------
-    -- ANIMATION IN (SLOW + SMOOTH)
-    ------------------------------------------------
 
     task.wait(0.15)
 
@@ -108,15 +88,8 @@ function Library:Loader()
         }
     ):Play()
 
-    ------------------------------------------------
-    -- HOLD
-    ------------------------------------------------
-
     task.wait(2)
 
-    ------------------------------------------------
-    -- FADE OUT (CLEAN)
-    ------------------------------------------------
 
     TweenService:Create(logo, TweenInfo.new(0.8), {ImageTransparency = 1}):Play()
     TweenService:Create(title, TweenInfo.new(0.8), {TextTransparency = 1}):Play()
@@ -127,9 +100,6 @@ function Library:Loader()
     gui:Destroy()
 end
 
-------------------------------------------------
--- INIT
-------------------------------------------------
 
 Library:Loader()
 
