@@ -44,7 +44,7 @@ function Library:Loader()
     title.Position = UDim2.new(0.5,-40,0.5,-40)
     title.BackgroundTransparency = 1
     title.Text = "Oblivion-Script"
-    title.TextColor3 = Color3.fromRGB(180,120,255)
+    title.TextColor3 = Color3.fromRGB(0,0,0)
     title.Font = Enum.Font.GothamBlack
     title.TextSize = 36
     title.TextXAlignment = Enum.TextXAlignment.Left
